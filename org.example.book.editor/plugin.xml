@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Book -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.example.book.presentation.BookModelWizardID"
+            name="%_UI_BookModelWizard_label"
+            class="org.example.book.presentation.BookModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/BookModelFile.gif">
+         <description>%_UI_BookModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Book -->
+      <editor
+            id="org.example.book.presentation.BookEditorID"
+            name="%_UI_BookEditor_label"
+            icon="icons/full/obj16/BookModelFile.gif"
+            extensions="book"
+            class="org.example.book.presentation.BookEditor"
+            contributorClass="org.example.book.presentation.BookActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

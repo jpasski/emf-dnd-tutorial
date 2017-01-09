@@ -1,4 +1,4 @@
-@GenModel(editDirectory="/org.example.library.edit/src-gen")
+@GenModel(editDirectory="/org.example.library.edit/src-gen", editorDirectory="/org.example.library.editor/src-gen")
 package org.example.library
 
 class Library
