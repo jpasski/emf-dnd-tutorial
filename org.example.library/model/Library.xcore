@@ -1,0 +1,13 @@
+@GenModel(editDirectory="/org.example.library.edit/src-gen")
+package org.example.library
+
+class Library
+{
+	String libraryName
+	contains LibraryBook[] libraryBooks
+}
+
+class LibraryBook
+{
+	String bookTitle
+}
