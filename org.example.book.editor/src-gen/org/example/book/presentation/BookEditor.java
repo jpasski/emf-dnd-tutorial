@@ -62,6 +62,7 @@ import org.eclipse.swt.custom.CTabFolder;
 
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.FileTransfer;
+import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
 
 import org.eclipse.swt.events.ControlAdapter;
@@ -140,8 +141,6 @@ import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
-
-import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 
@@ -153,9 +152,8 @@ import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
-
+import org.example.book.dnd.ExampleEditingDomainViewerDropAdapter;
 import org.example.book.provider.BookItemProviderAdapterFactory;
-
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -692,6 +690,7 @@ public class BookEditor
 	/**
 	 * This sets up the editing domain for the model editor.
 	 * <!-- begin-user-doc -->
+	 * Modified to include a custom item provider adapter factory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -924,8 +923,9 @@ public class BookEditor
 	/**
 	 * This creates a context menu for the viewer and adds a listener as well registering the menu for extension.
 	 * <!-- begin-user-doc -->
+	 * Modified to disallow DND.DROP_MOVE, include text transfer, and a custom drop support adapter
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createContextMenuFor(StructuredViewer viewer) {
 		MenuManager contextMenu = new MenuManager("#PopUp");
@@ -936,10 +936,16 @@ public class BookEditor
 		viewer.getControl().setMenu(menu);
 		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
 
-		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(), FileTransfer.getInstance() };
+		int dndOperations = DND.DROP_COPY | DND.DROP_LINK; 
+
+		Transfer[] transfers = new Transfer[] {
+			LocalTransfer.getInstance(),
+			LocalSelectionTransfer.getTransfer(),
+			TextTransfer.getInstance(),
+			FileTransfer.getInstance()
+		};
 		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
+		viewer.addDropSupport(dndOperations, transfers, new ExampleEditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
 
 	/**

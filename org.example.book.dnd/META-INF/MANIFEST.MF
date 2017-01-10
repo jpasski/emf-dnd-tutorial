@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.example.book.itemprovider
+Bundle-SymbolicName: org.example.book.dnd;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.edit,
+ org.example.book,
+ org.example.book.edit,
+ org.eclipse.emf.edit.ui
+Export-Package: org.example.book.dnd

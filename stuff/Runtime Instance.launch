@@ -3,18 +3,19 @@
 <setAttribute key="additional_plugins">
 <setEntry value="org.example.book.edit:1.0.0.qualifier:default:true"/>
 <setEntry value="org.example.book.editor:1.0.0.qualifier:default:true"/>
+<setEntry value="org.example.book.itemprovider:0.1.0.qualifier:default:true"/>
 <setEntry value="org.example.book:0.1.0.qualifier:default:true"/>
 <setEntry value="org.example.library.edit:1.0.0.qualifier:default:true"/>
 <setEntry value="org.example.library.editor:1.0.0.qualifier:default:true"/>
 <setEntry value="org.example.library:0.1.0.qualifier:default:true"/>
 </setAttribute>
 <booleanAttribute key="append.args" value="true"/>
-<booleanAttribute key="askclear" value="false"/>
+<booleanAttribute key="askclear" value="true"/>
 <booleanAttribute key="automaticAdd" value="true"/>
 <booleanAttribute key="automaticValidate" value="true"/>
 <stringAttribute key="bootstrap" value=""/>
 <stringAttribute key="checked" value="[NONE]"/>
-<booleanAttribute key="clearConfig" value="true"/>
+<booleanAttribute key="clearConfig" value="false"/>
 <booleanAttribute key="clearws" value="true"/>
 <booleanAttribute key="clearwslog" value="false"/>
 <stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/Runtime Instance"/>
@@ -45,6 +46,7 @@
 <setEntry value="org.eclipse.equinox.p2.rcp.feature:default"/>
 <setEntry value="org.eclipse.equinox.p2.user.ui:default"/>
 <setEntry value="org.eclipse.help:default"/>
+<setEntry value="org.eclipse.jdt:default"/>
 <setEntry value="org.eclipse.platform:default"/>
 <setEntry value="org.eclipse.rcp:default"/>
 </setAttribute>
